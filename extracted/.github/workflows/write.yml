@@ -1,0 +1,11 @@
+name: write
+# Write without create
+# เขียนเนื้อหา แต่ไม่สร้างไฟล์ให้ถ้ายังไม่มี
+# รันแล้วไม่ขึ้น error: เขียนลงชื่อใหม่ ของเดิมไม่ถูกทับ
+# ถ้า error: วางทับ path ที่ระบุ จะได้ไม่ต้องไปหาเอง
+conflict: rename
+path: src/main.x52
+body: |
+  fn main() {
+    print(52)
+  }

@@ -1,0 +1,7 @@
+name: create
+# Create file without write
+# ไม่เขียนเนื้อหาลงไฟล์
+# รันแล้วไม่ขึ้น error: ถ้าชื่อซ้ำ จะได้ชื่อใหม่ เพราะจะไม่วางทับ
+# ถ้า error: วางทับไฟล์เดิม จะได้ไม่ต้องไปหาเอง
+conflict: rename
+path: src/main.x52
