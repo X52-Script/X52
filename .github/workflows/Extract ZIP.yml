@@ -1,0 +1,42 @@
+
+name: Extract X52 ZIP
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Extract X52.zip
+        run: |
+          if [ ! -f "X52.zip" ]; then
+            echo "ERROR: X52.zip not found!"
+            exit 1
+          fi
+
+          unzip -o X52.zip -d .
+
+      - name: Commit Extracted Files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+          git reset -- X52.zip
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Extract X52.zip"
+          git push
+          
