@@ -1,0 +1,39 @@
+name: write
+
+# Write without create.
+# A missing path fails in both rename and overwrite. Overwrite replaces an existing file only.
+on:
+  workflow_dispatch:
+    inputs:
+      path:
+        description: Existing path to write
+        required: true
+        default: src/main.x52
+      conflict:
+        description: rename when clean, overwrite on error
+        required: true
+        default: rename
+        type: choice
+        options:
+          - rename
+          - overwrite
+      body:
+        description: File contents
+        required: true
+        default: "fn main() { print(52) }"
+
+permissions:
+  contents: write
+
+jobs:
+  write:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Write existing file and commit
+        env:
+          MODE: write
+          FILE_PATH: ${{ inputs.path }}
+          CONFLICT: ${{ inputs.conflict }}
+          FILE_BODY: ${{ inputs.body }}
+        run: bash .github/workflows/apply-file.sh

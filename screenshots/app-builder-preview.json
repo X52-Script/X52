@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "X52",
+      "hasCanvas": false,
+      "bodyTextLen": 499,
+      "bodyTextHash": "e705343f5d11352dc057a9a858d8f2005c9e5a3cad2f09f91a4b2cfb4c209ec8",
+      "bodyTextPrefix": "X52 / X52+ ห้องแล็บสองภาษา เป้าของโปรเจคคือภาษาที่เร็วที่สุด X52",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "X52",
+      "hasCanvas": false,
+      "bodyTextLen": 499,
+      "bodyTextHash": "e705343f5d11352dc057a9a858d8f2005c9e5a3cad2f09f91a4b2cfb4c209ec8",
+      "bodyTextPrefix": "X52 / X52+ ห้องแล็บสองภาษา เป้าของโปรเจคคือภาษาที่เร็วที่สุด X52",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

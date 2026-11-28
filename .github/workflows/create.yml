@@ -1,0 +1,34 @@
+name: create
+
+# Create file without write.
+# A clean run renames instead of overwriting. Overwrite only empties a file that already exists.
+on:
+  workflow_dispatch:
+    inputs:
+      path:
+        description: Path to create empty
+        required: true
+        default: src/main.x52
+      conflict:
+        description: rename when clean, overwrite on error
+        required: true
+        default: rename
+        type: choice
+        options:
+          - rename
+          - overwrite
+
+permissions:
+  contents: write
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Create empty file and commit
+        env:
+          MODE: create
+          FILE_PATH: ${{ inputs.path }}
+          CONFLICT: ${{ inputs.conflict }}
+        run: bash .github/workflows/apply-file.sh
